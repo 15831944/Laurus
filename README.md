@@ -1,2 +1,2 @@
 # Laurus
-Gas-station design assistant system.
+Gas-station design assistant system written by C#.
