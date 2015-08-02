@@ -1,0 +1,7 @@
+D:\CloudDrive\WorkSpace\Laurus\Laurus\bin\Debug\Laurus.dll
+D:\CloudDrive\WorkSpace\Laurus\Laurus\bin\Debug\Laurus.pdb
+D:\CloudDrive\WorkSpace\Laurus\Laurus\bin\Debug\DotNetARX.dll
+D:\CloudDrive\WorkSpace\Laurus\Laurus\bin\Debug\DotNetARX.pdb
+D:\CloudDrive\WorkSpace\Laurus\Laurus\bin\Debug\DotNetARX.xml
+D:\CloudDrive\WorkSpace\Laurus\Laurus\obj\Debug\Laurus.dll
+D:\CloudDrive\WorkSpace\Laurus\Laurus\obj\Debug\Laurus.pdb
