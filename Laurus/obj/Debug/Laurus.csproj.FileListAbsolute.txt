@@ -5,3 +5,11 @@ D:\CloudDrive\WorkSpace\Laurus\Laurus\bin\Debug\DotNetARX.pdb
 D:\CloudDrive\WorkSpace\Laurus\Laurus\bin\Debug\DotNetARX.xml
 D:\CloudDrive\WorkSpace\Laurus\Laurus\obj\Debug\Laurus.dll
 D:\CloudDrive\WorkSpace\Laurus\Laurus\obj\Debug\Laurus.pdb
+D:\MyCloud\WorkSpace\Laurus\Laurus\bin\Debug\Laurus.dll
+D:\MyCloud\WorkSpace\Laurus\Laurus\bin\Debug\Laurus.pdb
+D:\MyCloud\WorkSpace\Laurus\Laurus\bin\Debug\DotNetARX.dll
+D:\MyCloud\WorkSpace\Laurus\Laurus\bin\Debug\DotNetARX.pdb
+D:\MyCloud\WorkSpace\Laurus\Laurus\bin\Debug\DotNetARX.xml
+D:\MyCloud\WorkSpace\Laurus\Laurus\obj\Debug\Laurus.csprojResolveAssemblyReference.cache
+D:\MyCloud\WorkSpace\Laurus\Laurus\obj\Debug\Laurus.dll
+D:\MyCloud\WorkSpace\Laurus\Laurus\obj\Debug\Laurus.pdb
