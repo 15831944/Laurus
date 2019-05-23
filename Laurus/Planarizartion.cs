@@ -5,7 +5,6 @@ using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.Runtime;
-using DotNetARX;
 using Exception = Autodesk.AutoCAD.Runtime.Exception;
 
 namespace Laurus {
@@ -43,7 +42,8 @@ namespace Laurus {
         */
 
         public static bool Clear(this Line obj) {
-            if (Math.Abs(obj.StartPoint.Z) < TOLERANCE && Math.Abs(obj.EndPoint.Z) < TOLERANCE) return false;
+            if (Math.Abs(obj.StartPoint.Z) < TOLERANCE && Math.Abs(obj.EndPoint.Z) < TOLERANCE)
+                return false;
             obj.UpgradeOpen();
             obj.StartPoint = ClearZ(obj.StartPoint);
             obj.EndPoint = ClearZ(obj.EndPoint);
@@ -52,7 +52,8 @@ namespace Laurus {
         }
 
         public static bool Clear(this Xline obj) {
-            if (Math.Abs(obj.BasePoint.Z) < TOLERANCE && Math.Abs(obj.SecondPoint.Z) < TOLERANCE) return false;
+            if (Math.Abs(obj.BasePoint.Z) < TOLERANCE && Math.Abs(obj.SecondPoint.Z) < TOLERANCE)
+                return false;
             obj.UpgradeOpen();
             obj.BasePoint = ClearZ(obj.BasePoint);
             obj.SecondPoint = ClearZ(obj.SecondPoint);
@@ -61,7 +62,8 @@ namespace Laurus {
         }
 
         public static bool Clear(this Ray obj) {
-            if (Math.Abs(obj.BasePoint.Z) < TOLERANCE && Math.Abs(obj.SecondPoint.Z) < TOLERANCE) return false;
+            if (Math.Abs(obj.BasePoint.Z) < TOLERANCE && Math.Abs(obj.SecondPoint.Z) < TOLERANCE)
+                return false;
             obj.UpgradeOpen();
             obj.BasePoint = ClearZ(obj.BasePoint);
             obj.SecondPoint = ClearZ(obj.SecondPoint);
@@ -70,7 +72,8 @@ namespace Laurus {
         }
 
         public static bool Clear(this Arc obj) {
-            if (Math.Abs(obj.Center.Z) < TOLERANCE) return false;
+            if (Math.Abs(obj.Center.Z) < TOLERANCE)
+                return false;
             obj.UpgradeOpen();
             obj.Center = ClearZ(obj.Center);
             obj.DowngradeOpen();
@@ -78,7 +81,8 @@ namespace Laurus {
         }
 
         public static bool Clear(this Circle obj) {
-            if (Math.Abs(obj.Center.Z) < TOLERANCE) return false;
+            if (Math.Abs(obj.Center.Z) < TOLERANCE)
+                return false;
             obj.UpgradeOpen();
             obj.Center = ClearZ(obj.Center);
             obj.DowngradeOpen();
@@ -86,7 +90,8 @@ namespace Laurus {
         }
 
         public static bool Clear(this Ellipse obj) {
-            if (Math.Abs(obj.Center.Z) < TOLERANCE) return false;
+            if (Math.Abs(obj.Center.Z) < TOLERANCE)
+                return false;
             obj.UpgradeOpen();
             obj.Center = ClearZ(obj.Center);
             obj.DowngradeOpen();
@@ -94,7 +99,8 @@ namespace Laurus {
         }
 
         public static bool Clear(this DBText obj) {
-            if (Math.Abs(obj.Position.Z) < TOLERANCE) return false;
+            if (Math.Abs(obj.Position.Z) < TOLERANCE)
+                return false;
             obj.UpgradeOpen();
             obj.Position = ClearZ(obj.Position);
             obj.DowngradeOpen();
@@ -102,7 +108,8 @@ namespace Laurus {
         }
 
         public static bool Clear(this MText obj) {
-            if (Math.Abs(obj.Location.Z) < TOLERANCE && Math.Abs(obj.Direction.Z) < TOLERANCE) return false;
+            if (Math.Abs(obj.Location.Z) < TOLERANCE && Math.Abs(obj.Direction.Z) < TOLERANCE)
+                return false;
             obj.UpgradeOpen();
             obj.Location = ClearZ(obj.Location);
             obj.Direction = ClearZ(obj.Direction);
@@ -111,7 +118,8 @@ namespace Laurus {
         }
 
         public static bool Clear(this Polyline obj) {
-            if (Math.Abs(obj.Elevation) < TOLERANCE) return false;
+            if (Math.Abs(obj.Elevation) < TOLERANCE)
+                return false;
             obj.UpgradeOpen();
             obj.Elevation = 0.0;
             obj.DowngradeOpen();
@@ -119,7 +127,8 @@ namespace Laurus {
         }
 
         public static bool Clear(this DBPoint obj) {
-            if (Math.Abs(obj.Position.Z) < TOLERANCE) return false;
+            if (Math.Abs(obj.Position.Z) < TOLERANCE)
+                return false;
             obj.UpgradeOpen();
             obj.Position = ClearZ(obj.Position);
             obj.DowngradeOpen();
@@ -127,7 +136,8 @@ namespace Laurus {
         }
 
         public static bool Clear(this Dimension obj) {
-            if (Math.Abs(obj.Elevation) < TOLERANCE) return false;
+            if (Math.Abs(obj.Elevation) < TOLERANCE)
+                return false;
             obj.UpgradeOpen();
             obj.Elevation = 0.0;
             obj.DowngradeOpen();
@@ -135,7 +145,8 @@ namespace Laurus {
         }
 
         public static bool Clear(this Hatch obj) {
-            if (Math.Abs(obj.Elevation) < TOLERANCE) return false;
+            if (Math.Abs(obj.Elevation) < TOLERANCE)
+                return false;
             obj.UpgradeOpen();
             obj.Elevation = 0.0;
             obj.DowngradeOpen();
@@ -148,11 +159,13 @@ namespace Laurus {
             Point3d[] objControlPoints = new Point3d[obj.NumControlPoints];
             for (int i = 0; i < objControlPoints.Length; i++) {
                 objControlPoints[i] = obj.GetControlPointAt(i);
-                if (Math.Abs(objControlPoints[i].Z) > TOLERANCE) myFlag = true;
+                if (Math.Abs(objControlPoints[i].Z) > TOLERANCE)
+                    myFlag = true;
             }
 
             //根据检查结果进行处理
-            if (!myFlag) return false;
+            if (!myFlag)
+                return false;
             obj.UpgradeOpen();
             for (int i = 0; i < objControlPoints.Length; i++) {
                 obj.SetControlPointAt(i, ClearZ(objControlPoints[i]));
@@ -172,19 +185,32 @@ namespace Laurus {
         /// <param name="cEntity">待清零的实体</param>
         /// <returns>返回该实体是否需清零，以便计数。true：需要清零，false：不需要清零。</returns>
         public static bool Clear(this Entity cEntity) {
-            if (cEntity is Line) return ((Line) cEntity).Clear();
-            if (cEntity is Xline) return ((Xline) cEntity).Clear();
-            if (cEntity is Ray) return ((Ray) cEntity).Clear();
-            if (cEntity is Arc) return ((Arc) cEntity).Clear();
-            if (cEntity is Circle) return ((Circle) cEntity).Clear();
-            if (cEntity is Ellipse) return ((Ellipse) cEntity).Clear();
-            if (cEntity is DBText) return ((DBText) cEntity).Clear();
-            if (cEntity is MText) return ((MText) cEntity).Clear();
-            if (cEntity is Polyline) return ((Polyline) cEntity).Clear();
-            if (cEntity is DBPoint) return ((DBPoint) cEntity).Clear();
-            if (cEntity is Dimension) return ((Dimension) cEntity).Clear();
-            if (cEntity is Hatch) return ((Hatch) cEntity).Clear();
-            if (cEntity is Spline) return ((Spline) cEntity).Clear();
+            if (cEntity is Line)
+                return ((Line)cEntity).Clear();
+            if (cEntity is Xline)
+                return ((Xline)cEntity).Clear();
+            if (cEntity is Ray)
+                return ((Ray)cEntity).Clear();
+            if (cEntity is Arc)
+                return ((Arc)cEntity).Clear();
+            if (cEntity is Circle)
+                return ((Circle)cEntity).Clear();
+            if (cEntity is Ellipse)
+                return ((Ellipse)cEntity).Clear();
+            if (cEntity is DBText)
+                return ((DBText)cEntity).Clear();
+            if (cEntity is MText)
+                return ((MText)cEntity).Clear();
+            if (cEntity is Polyline)
+                return ((Polyline)cEntity).Clear();
+            if (cEntity is DBPoint)
+                return ((DBPoint)cEntity).Clear();
+            if (cEntity is Dimension)
+                return ((Dimension)cEntity).Clear();
+            if (cEntity is Hatch)
+                return ((Hatch)cEntity).Clear();
+            if (cEntity is Spline)
+                return ((Spline)cEntity).Clear();
             return false;
         }
 
@@ -200,7 +226,8 @@ namespace Laurus {
                 if (recurseIn && myObj is BlockReference) {
                     //块内图元处理过程
                 }
-                if (myObj.Clear()) countCleared++;
+                if (myObj.Clear())
+                    countCleared++;
             }
             return countCleared;
         }
@@ -223,19 +250,26 @@ namespace Laurus {
                 resStringResult = ed.GetString(optRecurseIn);
             } while (resStringResult.StringResult.ToUpper() != "Y" && resStringResult.StringResult.ToUpper() != "N");
             bool recurseIn = (resStringResult.StringResult == "Y");
+            
             using (Transaction trans = db.TransactionManager.StartTransaction()) {
-                try {
-                    List<Entity> objList = db.GetEntsInDatabase();
-                    ulong countTotal = (ulong) objList.Count;
+                List<Entity> objList = new List<Entity>();                  
+                    BlockTableRecord btRecord = (BlockTableRecord)trans.GetObject(SymbolUtilityServices.GetBlockModelSpaceId(db), OpenMode.ForRead);
+                    foreach (ObjectId id in btRecord) { 
+                        objList.Add((Entity)trans.GetObject(id, OpenMode.ForRead));
+                        //Access to the entity
+                        ulong countTotal = (ulong)objList.Count;
+                        ulong countCleared = Clear(entity, recurseIn);
+                    }
+
+
+                    List<Entity> objList =                       db.GetEntsInDatabase();
+                    ulong countTotal = (ulong)objList.Count;
                     ulong countCleared = Clear(objList, recurseIn);
 
-                    ed.WriteMessageWithReturn(
-                        "共检查了" + countTotal + "个对象，其中" + countCleared + "个对象的Z坐标已经清除。");
+                    ed.WriteMessage(
+                        "共检查了" + countTotal + "个对象，其中" + countCleared + "个对象的Z坐标已经清除。\n");
                     trans.Commit();
-                } catch (Exception e) {
-                    trans.Abort();
-                    ed.WriteMessageWithReturn(e.ToString());
-                }
+
             }
         }
 
@@ -248,7 +282,7 @@ namespace Laurus {
             Document doc = Application.DocumentManager.MdiActiveDocument;
             Editor ed = doc.Editor;
             List<Entity> objList = db.GetEntsInDatabase();
-            ed.WriteMessageWithReturn("模型空间共有" + objList.Count + "个对象。");
+            ed.WriteMessage("模型空间共有" + objList.Count + "个对象。\n");
         }
     }
 

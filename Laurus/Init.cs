@@ -5,7 +5,7 @@ using Laurus;
 
 [assembly: ExtensionApplication(typeof (Init))]
 [assembly: CommandClass(typeof (Init))]
-[assembly: CommandClass(typeof (Planarizartion))]
+//[assembly: CommandClass(typeof (Planarizartion))]
 
 namespace Laurus {
     internal class Init : IExtensionApplication {
