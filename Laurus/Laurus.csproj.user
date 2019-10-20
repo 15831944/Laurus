@@ -2,7 +2,7 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartProgram>D:\Program Files\AutoCAD 2010\acad.exe</StartProgram>
-    <StartWorkingDirectory>D:\Program Files\AutoCAD 2010\</StartWorkingDirectory>
+    <StartProgram>D:\Program Files\Autodesk\AutoCAD 2019\acad.exe</StartProgram>
+    <StartWorkingDirectory>D:\Program Files\Autodesk\AutoCAD 2019\</StartWorkingDirectory>
   </PropertyGroup>
 </Project>

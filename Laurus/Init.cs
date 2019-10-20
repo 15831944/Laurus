@@ -3,16 +3,15 @@ using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using Laurus;
 
-[assembly: ExtensionApplication(typeof (Init))]
-[assembly: CommandClass(typeof (Init))]
-//[assembly: CommandClass(typeof (Planarizartion))]
+[assembly: ExtensionApplication(typeof(Init))]
+[assembly: CommandClass(typeof(Init))]
+[assembly: CommandClass(typeof(Planarizartion))]
 
 namespace Laurus {
     internal class Init : IExtensionApplication {
         public void Initialize() {
             Hello();
         }
-
         public void Terminate() {
         }
 
